@@ -1,0 +1,109 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.welcome-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DEDBD2;
+    height: 40vh;
+}
+.welcome-section h1{
+    margin: 0;
+}
+.login-section{
+    background-color: #252422;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+.login-container{
+    width: 100%;
+    padding: 0 20px;
+}
+.login-form{
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    color: #f5f8f5;
+}
+.login-container > span{
+    color: #FFFF;
+    padding-top: 50px;
+}
+.login-section > span{
+    color: rgb(204, 204, 204);
+}
+.login-section > span > a{
+    color: #8ab5d1;
+    text-decoration: none;
+}
+.login-section > span > a:hover{
+    text-decoration: underline;
+}
+.label-style{
+    width: 100%;
+}
+.label-style > input{
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px gray solid;
+}
+.label-style > input:focus-visible{
+    outline: none;
+}
+.login-form > button{
+    background-color: #dcdfdf;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 15px;
+}
+@media (min-width:960px){
+    .container{
+        flex-direction: row;
+    }
+    .welcome-section{
+        height: 100vh;
+        width: 55vw;
+    }
+    .login-form{
+        padding: 100px 0;
+    }
+    .login-container{
+        padding: 0 60px;
+    }
+    .login-section{
+        height: 100vh;
+        width: 45vw;
+        justify-content: center;
+        gap: 20px;
+    }
+    .login-section > span:first-child{
+        align-self: flex-start;
+        padding-left: 57px;
+    }
+    /* .login-form{
+        padding:40px 50px;
+    } */
+}
+@media (min-width:1400px) {
+    .welcome-section{
+        width: 60vw;
+    }
+    .login-section{
+        width: 40vw;
+    }
+    .login-container{
+        padding:0 100px;
+    }
+}
