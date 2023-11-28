@@ -4,3 +4,10 @@
 body{
     margin: 0;
 }
+.default-btn{
+    background-color: transparent;
+    border: none;
+}
+.default-btn:focus-visible{
+    outline: none;
+}

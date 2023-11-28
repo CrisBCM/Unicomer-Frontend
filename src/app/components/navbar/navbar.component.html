@@ -1,0 +1,36 @@
+<nav class="nav-bar">
+    <ul>
+        <li class="li-input-search-desktop">
+            <div>
+                <fa-icon icon="magnifying-glass"></fa-icon>
+                <input class="input-search-desktop" type="search" placeholder="Busca aqui">
+            </div>
+        </li>
+        <li class="li-search-btn" (click)="searchInputMobile = !searchInputMobile">
+            <fa-icon class="search-icon icon-style" icon="magnifying-glass"></fa-icon>
+        </li>
+        <li *ngIf="searchInputMobile" class="li-input-search-mobile">
+            <div>
+                <fa-icon icon="magnifying-glass"></fa-icon>
+                <input type="search" placeholder="Busca aqui">
+            </div>
+            <button (click)="searchInputMobile = false" class="close-search default-btn">
+                <fa-icon icon="xmark"></fa-icon>
+            </button>
+        </li>
+        <li>
+            <fa-icon class="icon-style" icon="gear"></fa-icon>
+        </li>
+        <li>
+            <fa-icon class="icon-style" [icon]="['far', 'bell']"></fa-icon>
+        </li>
+        <li class="li-profile">
+            <div class="img-container">
+                <img src="../../../assets/images/michi.jpg" alt="">
+            </div>
+            <span>
+                Cristian Cruz Martinez
+            </span>
+        </li>
+    </ul>
+</nav>

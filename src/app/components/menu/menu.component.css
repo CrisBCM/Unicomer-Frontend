@@ -1,26 +1,36 @@
-.default-btn{
-    background-color: transparent;
-    border: none;
-}
-.default-btn:focus-visible{
-    outline: none;
-}
 .menu-btn{
     position: absolute;
-    top: 20px;
-    left: 15px;
+    top: 25px;
+    left: 10px;
+    padding: 0;
+    z-index: 9999;
 }
 .bars-icon{
-    color: whitesmoke;
-    font-size: 1.8em;
+    font-size: 1.4em;
+    padding: 9px 11px;
+    color: rgb(163, 162, 162);
+    /* border: 1px solid rgb(146, 146, 146); */
+    /* border-radius: 100px; */
 }
-.aside-menu{
+@keyframes appear {
+    0%{
+        transform: translateX(-300px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.aside-menu-mobile{
     position: absolute;
     z-index: 99999;
     background-color: #dcccdc;
     background-image: linear-gradient(0deg, #dcccdc 0%, #eff2f2 100%);
     width: 100vw;
     height: 100vh;
+    animation: appear .5s ease-out;
+}
+.aside-menu-desktop{
+    display: none;
 }
 .header-menu{
     display: flex;
@@ -38,9 +48,47 @@
 .xmark-icon{
     font-size: 1.2em;
 }
-.body-menu{
-    background-color: rgb(190, 190, 190);
-}
 .body-menu > ul{
+    margin-top: 0;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.body-menu > ul > li{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.icon-style{
+    padding: 15px 15px;
+    border-radius: 1000px;
+    border: 2px solid rgb(150, 150, 150);
+}
+.active{
+    background-color: rgb(39, 39, 39);
+    color:#FFFF;
+}
+@media (min-width: 599px){
+    .aside-menu-mobile{
+        width: 50vw;
+    }
+}
+@media (min-width: 960px){
+    .aside-menu-mobile{
+        width: 40vw;
+    }
+}
+@media (min-width: 1280px){
+    .header-menu > h2{
+        padding-left: 60px;
+    }
+    .aside-menu-desktop{
+        display: block;
+        height: 100%;
+        background-color: whitesmoke;
+    }
+    .menu-btn{
+        display: none;
+    }
 }

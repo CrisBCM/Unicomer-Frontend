@@ -7,7 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCreditCard, faGift, faHandHoldingUsd, faHouse, faQuestion, faRightLeft, faShield, faSignOutAlt, faTag, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCreditCard, faGear, faGift, faHandHoldingUsd, faHouse, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {faBell} from '@fortawesome/free-regular-svg-icons'
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { faBars, faCreditCard, faGift, faHandHoldingUsd, faHouse, faQuestion, fa
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,20 @@ import { faBars, faCreditCard, faGift, faHandHoldingUsd, faHouse, faQuestion, fa
 })
 export class AppModule {
   constructor(library: FaIconLibrary){
-    library.addIcons(faBars, faXmark, faHouse, faCreditCard, faHandHoldingUsd, faRightLeft, faTag, faShield, faGift, faQuestion, faSignOutAlt);
+    library.addIcons(faBars,
+                     faXmark,
+                     faHouse,
+                     faCreditCard,
+                     faHandHoldingUsd,
+                     faRightLeft,
+                     faTag,
+                     faShield,
+                     faGift,
+                     faQuestionCircle,
+                     faSignOutAlt,
+                     faMagnifyingGlass,
+                     faGear,
+                     faBell
+                     );
   }
  }
