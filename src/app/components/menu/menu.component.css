@@ -1,12 +1,12 @@
 .menu-btn{
     position: absolute;
-    top: 25px;
-    left: 10px;
+    top: 33px;
+    left: 8px;
     padding: 0;
     z-index: 9999;
 }
 .bars-icon{
-    font-size: 1.4em;
+    font-size: 2.4em;
     padding: 9px 11px;
     color: rgb(163, 162, 162);
     /* border: 1px solid rgb(146, 146, 146); */
@@ -80,8 +80,8 @@
     }
 }
 @media (min-width: 1280px){
-    .header-menu > h2{
-        padding-left: 60px;
+    .body-menu > ul{
+        padding-left: 10px;
     }
     .aside-menu-desktop{
         display: block;
@@ -90,5 +90,13 @@
     }
     .menu-btn{
         display: none;
+    }
+}
+@media (min-width: 1400px){
+    .header-menu > h2{
+        padding-left: 60px;
+    }
+    .body-menu > ul{
+        padding-left: 40px;
     }
 }
