@@ -10,6 +10,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { faBars, faCreditCard, faGear, faGift, faHandHoldingUsd, faHouse, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {faBell} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UnicomerComponent } from './components/unicomer/unicomer.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    UnicomerComponent
   ],
   imports: [
     BrowserModule,

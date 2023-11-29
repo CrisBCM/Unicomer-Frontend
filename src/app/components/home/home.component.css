@@ -1,21 +1,90 @@
-.container{
-    display: flex;
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color: #575771;
-    background-image: linear-gradient(135deg, #575771 1%, #7676c9 100%);
-}
 main{
-    width: 100vw;
+    /* background-color: gray; */
 }
-@media (min-width: 1280px){
-    .container{
-        gap: 20px;
+main > h2{
+    color: whitesmoke;
+    text-align: center;
+    /* padding-left: 55px; */
+    padding: 30px 0;
+}
+.cards-container{
+    /* background-color: rgb(124, 153, 206); */
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 11px;
+    justify-content: center;
+}
+.ul-default{
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.card{
+    background-color: rgb(231, 231, 231);
+    height: 260px;
+    border-radius: 30px;
+    width: 450px;
+    min-width: 300px;
+}
+.my-card{
+    background-color: #000000;
+    background-image: linear-gradient(45deg, #000000 0%, #5a5959 47%, #0a0a0a 100%);
+    color: rgb(194, 193, 193);
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+.ul-my-card{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 34px 30px 0 30px;
+}
+.balance{
+    display: flex;
+    flex-direction: column;
+}
+.balance > span:first-child{
+    padding: 5px 0;
+}
+.balance > span:nth-child(2){
+    font-size: 1.6em;
+}
+.li-circles::after, .li-circles::before{
+    content: "";
+    position: absolute;
+    padding: 20px 20px;
+    border-radius: 100px;
+    background-color: #ffd90042;
+}
+.li-circles::after{
+    right: 30px;
+}
+.li-circles::before{
+    right: 60px;
+}
+.card-number-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+.ul-info-card{
+    display: flex;
+    gap: 30px;
+    padding: 0 30px;
+}
+.li-info{
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width:1280px){
+    main > h2{
+        text-align: start;
+        padding-left: 55px;
     }
-    aside{
-        width: 18vw;
-    }
-    main{
-        width: 80vw;
+    .cards-container{
+        flex-wrap: nowrap;
+        padding: 0 55px;
     }
 }
