@@ -81,7 +81,7 @@
 }
 @media (min-width: 1280px){
     .body-menu > ul{
-        padding-left: 10px;
+        padding-left: 15px;
     }
     .aside-menu-desktop{
         display: block;
@@ -93,6 +93,9 @@
     }
 }
 @media (min-width: 1400px){
+    .aside-menu-mobile{
+        width: 38vw;
+    }
     .header-menu > h2{
         padding-left: 60px;
     }

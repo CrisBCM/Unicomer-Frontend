@@ -7,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCreditCard, faGear, faGift, faHandHoldingUsd, faHouse, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faXmark } from '@fortawesome/free-solid-svg-icons';
-import {faBell} from '@fortawesome/free-regular-svg-icons'
+import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faGear, faGift, faHandHoldingUsd, faHouse, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {faBell, faCreditCard} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
 
@@ -45,7 +45,12 @@ export class AppModule {
                      faSignOutAlt,
                      faMagnifyingGlass,
                      faGear,
-                     faBell
+                     faBell,
+                     faWallet,
+                     faArrowDown,
+                     faArrowUp,
+                     faCaretDown,
+                     faCaretUp
                      );
   }
  }

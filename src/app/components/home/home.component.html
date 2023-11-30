@@ -25,10 +25,40 @@
             </ul>
         </article>
         <article class="card income-card">
-            god
+            <ul class="ul-default ul-income-card">
+                <li class="li-income">
+                    <div class="income-icons">
+                        <fa-icon class="arrow-down-icon" icon="arrow-down"></fa-icon>
+                        <fa-icon class="credit-card-icon" [icon]="['far', 'credit-card']"></fa-icon>
+                    </div>
+                    <div class="income-container">
+                        <span>Ingresos</span>
+                        <span>$45,741</span>
+                    </div>
+                </li>
+                <li class="li-income-percentage">
+                    <fa-icon icon="caret-up"></fa-icon>
+                    <span class="income-percentage">+0,5%</span>
+                </li>
+            </ul>
         </article>
-        <article class="card expenses-card">
-            god
+        <article class="card egress-card">
+            <ul class="ul-default ul-egress-card">
+                <li class="li-egress">
+                    <div class="egress-icons">
+                        <fa-icon class="arrow-up-icon" icon="arrow-up"></fa-icon>
+                        <fa-icon class="credit-card-icon" [icon]="['far', 'credit-card']"></fa-icon>
+                    </div>
+                    <div class="egress-container">
+                        <span>Egresos</span>
+                        <span>$32,123</span>
+                    </div>
+                </li>
+                <li class="li-egress-percentage">
+                    <fa-icon icon="caret-down"></fa-icon>
+                    <span class="egress-percentage">-0,5%</span>
+                </li>
+            </ul>
         </article>
     </div>
 </main>
