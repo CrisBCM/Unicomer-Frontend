@@ -12,7 +12,7 @@ main > h2{
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
-    padding: 0 11px;
+    /* padding: 0 11px; */
     justify-content: center;
 }
 .ul-default{
@@ -150,12 +150,15 @@ main > h2{
     font-size: 1.3em;
 }
 @media (min-width:1280px){
+    main{
+        padding: 0 55px;
+    }
     main > h2{
         text-align: start;
-        padding-left: 55px;
+        /* padding-left: 55px; */
     }
     .cards-container{
         flex-wrap: nowrap;
-        padding: 0 55px;
+        /* padding: 0 55px; */
     }
 }

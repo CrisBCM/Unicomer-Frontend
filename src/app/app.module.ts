@@ -11,6 +11,8 @@ import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faGear, faGift,
 import {faBell, faCreditCard} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
+import { BalanceChartsComponent } from './components/balance-charts/balance-charts.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -20,12 +22,14 @@ import { UnicomerComponent } from './components/unicomer/unicomer.component';
     HomeComponent,
     MenuComponent,
     NavbarComponent,
-    UnicomerComponent
+    UnicomerComponent,
+    BalanceChartsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
