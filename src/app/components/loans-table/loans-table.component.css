@@ -1,0 +1,29 @@
+.loans-table{
+    /* background-color: whitesmoke; */
+    width: 100%;
+    min-width: 930px;
+    border-spacing:0 20px;
+}
+.loans-thead{
+    
+}
+.loans-tbody{
+    background-color: rgb(172, 130, 130);
+    text-align: center;
+}
+.tbody-td-loans{
+    padding: 30px 0px;
+}
+.tr-body > td:first-child{
+    padding-left: 30px;
+}
+.tr-body > td:last-child{
+    padding-right: 30px;
+}
+.amount-td{
+    display: flex;
+    flex-direction: column;
+}
+.sub-info-span{
+
+}

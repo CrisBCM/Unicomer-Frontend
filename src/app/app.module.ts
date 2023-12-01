@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
 import { BalanceChartsComponent } from './components/balance-charts/balance-charts.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { LoansTableComponent } from './components/loans-table/loans-table.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MenuComponent,
     NavbarComponent,
     UnicomerComponent,
-    BalanceChartsComponent
+    BalanceChartsComponent,
+    LoansTableComponent
   ],
   imports: [
     BrowserModule,

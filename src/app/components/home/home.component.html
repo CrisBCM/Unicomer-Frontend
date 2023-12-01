@@ -62,10 +62,10 @@
         </article>
     </div>
     <div class="balance-transactions-container">
-        <section>
-            <ul>
+        <section class="balance-section">
+            <ul class="ul-default ul-balance">
                 <li>
-                    <h4></h4>
+                    <h2>Balance</h2>
                 </li>
                 <li>
                     <span>filtro por semana</span>
@@ -73,28 +73,55 @@
             </ul>
             <app-balance-charts></app-balance-charts>
         </section>
-        <section>
-            <h3>Últimas transacciones</h3>
-            <ul>
-                <li>icon</li>
+        <section class="transactions-section">
+            <h2>Últimas transacciones</h2>
+            <ul class="ul-default ul-transactions">
                 <li>
-                    <span>Nombre</span>
+                    <fa-icon icon="arrow-up" class="income-transaction"></fa-icon>
+                </li>
+                <li class="li-name">
+                    <span class="name">Nombre</span>
                     <span>Transferencia</span>
                 </li>
                 <li>
                     <span>$60.000</span>
                 </li>
-                <li>
-                    <span>Fecha</span>
+                <li class="li-date-time">
+                    <span class="date">Fecha</span>
                     <span>Hora</span>
                 </li>
                 <li>
-                    <span>Estado</span>
+                    <span class="status">Estado</span>
+                </li>
+                <li>
+                    <span>options</span>
+                </li>
+            </ul>
+            <ul class="ul-default ul-transactions">
+                <li>
+                    <fa-icon icon="arrow-up" class="egress-transaction"></fa-icon>
+                </li>
+                <li class="li-name">
+                    <span class="name">Nombre</span>
+                    <span>Transferencia</span>
+                </li>
+                <li>
+                    <span>$60.000</span>
+                </li>
+                <li class="li-date-time">
+                    <span class="date">Fecha</span>
+                    <span>Hora</span>
+                </li>
+                <li>
+                    <span class="status">Estado</span>
                 </li>
                 <li>
                     <span>options</span>
                 </li>
             </ul>
         </section>
+    </div>
+    <div class="table-container">
+        <app-loans-table></app-loans-table>
     </div>
 </main>

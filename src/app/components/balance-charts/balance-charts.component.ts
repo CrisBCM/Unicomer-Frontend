@@ -19,7 +19,8 @@ export class BalanceChartsComponent implements OnInit{
   barChart(){
     this.chartOptions = {
       chart:{
-        type: 'column'
+        type: 'column',
+        backgroundColor: '#d4d1d100'
       },
       title: '',
       legend: {
