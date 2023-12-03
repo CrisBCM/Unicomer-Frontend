@@ -1,21 +1,30 @@
 <section class="login-section">
     <div class="login-container">
         <span>LOGO</span>
-        <form class="login-form" action="">
+        <form [formGroup]="logInForm" class="login-form" action="">
             <label class="label-style" for="document-type">
                 Tipo de documento
-                <input type="text" name="document-type" placeholder="DNI">
+                <select class="select-style" formControlName="documentType" name="documentType" id="">
+                    <option class="select-option" selected="selected" disabled="disabled">DNI</option>
+                    <option class="select-option" value="dni">DNI</option>
+                    <option class="select-option" value="cedula">Cédula</option>
+                    <option class="select-option" value="pasaporte">Pasaporte</option>
+                </select>
             </label>
-            <label class="label-style" for="document-number">
+            <label class="label-style" for="dni">
                 Número de documento
-                <input type="number" name="document-number" placeholder="45337896">
+                <input formControlName="dni" type="number" name="dni" placeholder="45337896">
             </label>
             <label class="label-style" for="password">
                 Clave
-                <input type="password" name="password" placeholder="********">
+                <input formControlName="password" type="password" name="password" placeholder="********">
             </label>
-            <button>Ingresar</button>
+            <button (click)="submitLogIn()" class="submit-button">Ingresar</button>
+            <div *ngIf="errorMsg" class="error-msg">
+                <span>{{errorMsg}}</span>
+            </div>
         </form>
+        
         <button class="virtual-keyboard">
             <fa-icon icon="keyboard"></fa-icon>
             Teclado virtual

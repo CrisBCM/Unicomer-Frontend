@@ -22,7 +22,7 @@
             </div>
             <label class="label-style" for="email">
                 Correo Electronico
-                <input class="register-input" [ngClass]="{'invalid-input': isValidField('email'), 'valid-input': email.valid}" formControlName="email" type="email" name="email">
+                <input (keydown)="errorMsg = ''" class="register-input" [ngClass]="{'invalid-input': isValidField('email'), 'valid-input': email.valid}" formControlName="email" type="email" name="email">
                 <div class="msg-invalid">
                     <span *ngIf="email.errors?.['required'] && email.dirty" >Campo Requerido.</span>
                     <span *ngIf="email.errors?.['minlength'] && email.dirty" >Minimo 4 caracteres.</span>
@@ -39,12 +39,12 @@
                         <option class="select-option" value="pasaporte">Pasaporte</option>
                     </select>
                 </label>
-                <label class="label-style" for="documentNumber">
+                <label class="label-style" for="dni">
                     Numero de documento
-                    <input [ngClass]="{'invalid-input': isValidField('documentNumber'), 'valid-input': documentNumber.valid}" class="register-input" formControlName="documentNumber" type="number" name="documentNumber">
+                    <input (keydown)="errorMsg = ''" [ngClass]="{'invalid-input': isValidField('dni'), 'valid-input': dni.valid}" class="register-input" formControlName="dni" type="number" name="dni">
                     <div class="msg-invalid">
-                        <span *ngIf="documentNumber.errors?.['required'] && documentNumber.dirty" >Campo Requerido.</span>
-                        <span *ngIf="documentNumber.errors?.['pattern'] && documentNumber.dirty" >El número de documento debe tener 8 digitos</span>
+                        <span *ngIf="dni.errors?.['required'] && dni.dirty" >Campo Requerido.</span>
+                        <span *ngIf="dni.errors?.['pattern'] && dni.dirty" >El número de documento debe tener 8 digitos</span>
                     </div>
                 </label>
             </div>
@@ -70,8 +70,11 @@
                     <span *ngIf="confirmPassword.errors?.['repeatPasswordValidator'] && confirmPassword.dirty" >Las contraseñas no coinciden.</span>
                 </div>
             </label>
-            <button [ngClass]="{'submit-button-disable': registerForm.invalid, 'submit-button-hover': registerForm.valid}" class="submit-button submit-button-hover" [disabled]="registerForm.invalid" (click)="onSubmit()">Registrar</button>
+            <button [ngClass]="{'submit-button-disable': registerForm.invalid, 'submit-button-hover': registerForm.valid}" class="submit-button submit-button-hover" [disabled]="registerForm.invalid" (click)="onSubmitRegister()">Registrar</button>
         </form>
+        <div *ngIf="errorMsg" class="error-msg">
+            <span>{{errorMsg}}</span>
+        </div>
         <button class="virtual-keyboard">
             <fa-icon icon="keyboard"></fa-icon>
             Teclado virtual

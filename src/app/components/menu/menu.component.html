@@ -2,93 +2,97 @@
     <fa-icon icon="bars" class="bars-icon"></fa-icon>
 </button>
 <aside *ngIf="isMobileMenuActive" class="aside-menu-mobile">
-    <div class="header-menu">
-        <h2>LOGO</h2>
-        <button class="default-btn close-btn" (click)="isMobileMenuActive = false"><fa-icon icon="xmark" class="xmark-icon"></fa-icon></button>
-    </div>
-    <div class="body-menu">
-        <ul>
-            <li>
-                <fa-icon class="icon-style active" icon="house"></fa-icon>
-                 Inicio
-            </li>
-            <li>
-                <fa-icon class="icon-style" [icon]="['far', 'credit-card']"></fa-icon>
-                Tarjetas
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="hand-holding-dollar"></fa-icon>
-                Prestamos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="right-left"></fa-icon>
-                Operaciones
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="tag"></fa-icon>
-                Te ofrecemos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="shield"></fa-icon>
-                Seguros
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="gift"></fa-icon>
-                Puntos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="question-circle"></fa-icon>
-                Ayuda
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
-                Cerrar sesión
-            </li>
-        </ul>
+    <div class="menu-container">
+        <div class="header-menu">
+            <h2>LOGO</h2>
+            <button class="default-btn close-btn" (click)="isMobileMenuActive = false"><fa-icon icon="xmark" class="xmark-icon"></fa-icon></button>
+        </div>
+        <div class="body-menu">
+            <ul class="body-menu-ul">
+                <li class="body-menu-li active-li">
+                    <fa-icon class="icon-style active-icon" icon="house"></fa-icon>
+                     <span>Inicio</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" [icon]="['far', 'credit-card']"></fa-icon>
+                    <span>Tarjetas</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="hand-holding-dollar"></fa-icon>
+                    <span>Prestamos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="right-left"></fa-icon>
+                    <span>Operaciones</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="tag"></fa-icon>
+                    <span>Te ofrecemos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="shield"></fa-icon>
+                    <span>Seguros</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="gift"></fa-icon>
+                    <span>Puntos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="question-circle"></fa-icon>
+                    <span>Ayuda</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
+                    <span>Cerrar sesion</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </aside>
 <aside class="aside-menu-desktop">
-    <div class="header-menu">
-        <h2>LOGO</h2>
-    </div>
-    <div class="body-menu">
-        <ul>
-            <li>
-                <fa-icon class="icon-style active" icon="house"></fa-icon>
-                 Inicio
-            </li>
-            <li>
-                <fa-icon class="icon-style" [icon]="['far', 'credit-card']"></fa-icon>
-                Tarjetas
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="hand-holding-dollar"></fa-icon>
-                Prestamos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="right-left"></fa-icon>
-                Operaciones
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="tag"></fa-icon>
-                Te ofrecemos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="shield"></fa-icon>
-                Seguros
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="gift"></fa-icon>
-                Puntos
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="question-circle"></fa-icon>
-                Ayuda
-            </li>
-            <li>
-                <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
-                Cerrar sesión
-            </li>
-        </ul>
+    <div class="menu-container">
+        <div class="header-menu">
+            <h2>LOGO</h2>
+        </div>
+        <div class="body-menu">
+            <ul class="body-menu-ul">
+                <li class="body-menu-li active-li">
+                    <fa-icon class="icon-style active-icon" icon="house"></fa-icon>
+                     <span>Inicio</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" [icon]="['far', 'credit-card']"></fa-icon>
+                    <span>Tarjetas</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="hand-holding-dollar"></fa-icon>
+                    <span>Prestamos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="right-left"></fa-icon>
+                    <span>Operaciones</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="tag"></fa-icon>
+                    <span>Te ofrecemos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="shield"></fa-icon>
+                    <span>Seguros</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="gift"></fa-icon>
+                    <span>Puntos</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="question-circle"></fa-icon>
+                    <span>Ayuda</span>
+                </li>
+                <li class="body-menu-li">
+                    <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
+                    <span>Cerrar Sesion</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </aside>

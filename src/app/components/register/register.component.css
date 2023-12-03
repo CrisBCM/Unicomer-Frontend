@@ -67,7 +67,12 @@
     left: 0;
     color: rgb(207, 57, 57);
 }
-
+.error-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
 .register-input{
     display: block;
     width: 100%;

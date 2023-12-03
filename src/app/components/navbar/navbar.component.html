@@ -6,31 +6,19 @@
                 <input class="input-search-desktop input-search" type="search" placeholder="Busca aqui">
             </div>
         </li>
-        <li class="li-search-btn" (click)="searchInputMobile = !searchInputMobile">
-            <fa-icon class="icon-style search-icon-mobile" icon="magnifying-glass"></fa-icon>
-        </li>
-        <li *ngIf="searchInputMobile" class="li-input-search-mobile">
-            <div>
-                <fa-icon class="magnifying-glass-mobile" icon="magnifying-glass"></fa-icon>
-                <input class="input-search" type="search" placeholder="Busca aqui">
-            </div>
-            <button (click)="searchInputMobile = false" class="close-search default-btn">
-                <fa-icon icon="xmark"></fa-icon>
-            </button>
-        </li>
-        <li class="li-profile">
-            <button class="default-btn">
+        <li *ngIf="client$ | async as client" class="li-profile">
+            <button class="default-btn gear-button">
                 <fa-icon class="icon-style" icon="gear"></fa-icon>
             </button>
-            <button class="default-btn">
+            <button class="default-btn notification-button">
                 <fa-icon class="icon-style" [icon]="['far', 'bell']"></fa-icon>
             </button>
             <div class="div-profile">
                 <div class="img-container">
-                    <img src="../../../assets/images/michi.jpg" alt="">
+                    <img [src]="client.urlImg" alt="profile image">
                 </div>
                 <span>
-                    Cristian Cruz Martinez
+                    {{client.fullname}}
                 </span>
             </div>
         </li>

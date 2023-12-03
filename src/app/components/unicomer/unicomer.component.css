@@ -7,12 +7,22 @@
 main{
     width: 100vw;
 }
+@media (min-width: 960px){
+    .container{
+    }
+    aside{
+        width: 22vw;
+    }
+    main{
+        width: 78vw;
+    }
+}
 @media (min-width: 1280px){
     .container{
         gap: 20px;
     }
     aside{
-        width: 18vw;
+        width: 16vw;
     }
     main{
         width: 80vw;

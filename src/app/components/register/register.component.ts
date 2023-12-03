@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 import { repeatPasswordValidator } from 'src/app/shared/repeatPasswordValidator.directive';
 
 @Component({
@@ -13,14 +15,15 @@ export class RegisterComponent implements OnInit{
 
   showPassword:boolean = false;
   showConfirmPassword:boolean = false;
+  errorMsg:string = "";
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, private registerService:RegisterService, private router:Router){
     this.registerForm = this.fb.group({
       'name' : ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20) ]],
       'lastname' : ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       'email' : ['', [Validators.required, Validators.minLength(4), Validators.email]],
       'documentType' : ['', Validators.required],
-      'documentNumber' : ['', [Validators.required, Validators.pattern(/^\d{8}$/)]],
+      'dni' : ['', [Validators.required, Validators.pattern(/^\d{8}$/)]],
       'password' : ['', [Validators.required, Validators.minLength(4)]],
       'confirmPassword' : ['', Validators.required]
     })
@@ -44,8 +47,8 @@ export class RegisterComponent implements OnInit{
   get documentType(){
     return this.registerForm.get("documentType") as FormControl;
   }
-  get documentNumber(){
-    return this.registerForm.get("documentNumber") as FormControl;
+  get dni(){
+    return this.registerForm.get("dni") as FormControl;
   }
   get password(){
     return this.registerForm.get("password") as FormControl;
@@ -61,8 +64,18 @@ export class RegisterComponent implements OnInit{
     return (inputName.dirty && !inputName.valid);
   }
 
-  onSubmit(){
-    console.log(this.registerForm.value);
+  onSubmitRegister(){
+    console.log(this.registerForm.value)
+    if(this.registerForm.valid){
+      this.registerService.register(this.registerForm.value).subscribe({
+        next : () => {
+        },
+        complete : () =>{
+          this.router.navigate(["/unicomer/home"]);
+        },
+        error : (err:any) => this.errorMsg = err.error
+      })
+    }
   }
 
 }

@@ -49,11 +49,35 @@
     padding: 8px 0px;
     color: whitesmoke;
 }
-.label-style > input:hover, .label-style > input:focus{
-    background-color: rgba(80, 80, 129, 0.329);
-}
 .label-style > input:focus-visible{
     outline: none;
+}
+.select-style{
+    background-color: transparent;
+    display: flex;
+    gap: 20px;
+    color: whitesmoke;
+    border: none;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.select-option{
+    background-color: #252422;
+    outline: none;
+    /* padding: 50px 5px !important; */
+}
+.select-option:hover{
+    background-color: red;
+}
+.select-style:focus-visible{
+    outline: none;
+}
+.error-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
 }
 .virtual-keyboard{
     width: 50%;
@@ -67,7 +91,7 @@
 .virtual-keyboard:hover{
     color: rgb(94, 115, 148);
 }
-.login-form > button{
+.submit-button{
     background-color: #364668c9;
     border: none;
     padding: 10px 0;

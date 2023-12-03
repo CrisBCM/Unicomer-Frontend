@@ -21,10 +21,8 @@
     }
 }
 .aside-menu-mobile{
-    position: absolute;
+    position: fixed;
     z-index: 99999;
-    background-color: #dcccdc;
-    background-image: linear-gradient(0deg, #dcccdc 0%, #eff2f2 100%);
     width: 100vw;
     height: 100vh;
     animation: appear .5s ease-out;
@@ -32,74 +30,94 @@
 .aside-menu-desktop{
     display: none;
 }
+.aside-menu-mobile, .aside-menu-desktop{
+    background-color: #272727;
+}
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 15% 0px;
+}
 .header-menu{
     display: flex;
-    padding: 40px 50px;
     justify-content: space-between;
 }
 .header-menu > h2{
+    color: whitesmoke;
     margin: 0;
 }
 .close-btn{
-    border: 1px solid black;
-    border-radius: 100px;
-    padding: 17px 20px;
+    color: white;
 }
 .xmark-icon{
-    font-size: 1.2em;
+    font-size: 1.6em;
 }
-.body-menu > ul{
+.body-menu-ul{
     margin-top: 0;
+    padding: 0;
     list-style-type: none;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.body-menu > ul > li{
+.body-menu-li{
     display: flex;
     align-items: center;
-    gap: 40px;
+    color: rgba(189, 188, 188, 0.76);
+    cursor: pointer;
+    transition: all .5s;
+}
+fa-icon{
+    transition: all .5s;
+}
+.body-menu-li:hover > fa-icon{
+    background-color: rgb(48, 71, 107);
+}
+.body-menu-li:hover{
+    color: rgb(240, 237, 237);
+}
+.body-menu-li > span{
+    margin-left: 10%;
 }
 .icon-style{
     padding: 15px 15px;
     border-radius: 1000px;
-    border: 2px solid rgb(150, 150, 150);
 }
-.active{
-    background-color: rgb(39, 39, 39);
-    color:#FFFF;
+.active-icon{
+    background-color: rgb(48, 71, 107);
+}
+.active-li{
+    color: rgb(240, 237, 237);
 }
 @media (min-width: 599px){
-    .aside-menu-mobile{
-        width: 50vw;
-    }
-}
-@media (min-width: 960px){
     .aside-menu-mobile{
         width: 40vw;
     }
 }
-@media (min-width: 1280px){
-    .body-menu > ul{
-        padding-left: 15px;
+@media (min-width: 960px){
+    /* .aside-menu-mobile{
+        width: 40vw;
+    } */
+    .aside-menu-mobile{
+        display: none;
     }
     .aside-menu-desktop{
         display: block;
         height: 100%;
-        background-color: whitesmoke;
     }
     .menu-btn{
         display: none;
     }
+    .header-menu{
+        justify-content: center;
+    }
+}
+@media (min-width: 1280px){
+    
 }
 @media (min-width: 1400px){
     .aside-menu-mobile{
         width: 38vw;
-    }
-    .header-menu > h2{
-        padding-left: 60px;
-    }
-    .body-menu > ul{
-        padding-left: 40px;
     }
 }
