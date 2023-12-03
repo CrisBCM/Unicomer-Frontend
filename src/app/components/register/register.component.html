@@ -1,0 +1,81 @@
+<section class="register-section">
+    <div class="register-container">
+        <span>LOGO</span>
+        <form [formGroup]="registerForm" class="register-form">
+            <div class="fullname-container">
+                <label class="label-style label-name" for="name">
+                    Nombre
+                    <input class="register-input" [ngClass]="{'invalid-input': isValidField('name'), 'valid-input': name.valid}" class="register-input" formControlName="name" type="text" name="name">
+                    <div class="msg-invalid">
+                        <span *ngIf="name.errors?.['required'] && name.dirty">Campo Requerido</span>
+                        <span *ngIf="name.errors?.['minlength'] && name.dirty">Minimo 2 caracteres</span>
+                    </div>
+                </label>
+                <label class="label-style label-lastname" for="lastname">
+                    Apellido
+                    <input class="register-input" [ngClass]="{'invalid-input': isValidField('lastname'), 'valid-input': lastname.valid}" formControlName="lastname" type="text" name="lastname">
+                    <div class="msg-invalid">
+                        <span *ngIf="lastname.errors?.['required'] && lastname.dirty" >Campo Requerido</span>
+                        <span *ngIf="lastname.errors?.['minlength'] && lastname.dirty" >Minimo 2 caracteres</span>
+                    </div>
+                </label>
+            </div>
+            <label class="label-style" for="email">
+                Correo Electronico
+                <input class="register-input" [ngClass]="{'invalid-input': isValidField('email'), 'valid-input': email.valid}" formControlName="email" type="email" name="email">
+                <div class="msg-invalid">
+                    <span *ngIf="email.errors?.['required'] && email.dirty" >Campo Requerido.</span>
+                    <span *ngIf="email.errors?.['minlength'] && email.dirty" >Minimo 4 caracteres.</span>
+                    <span *ngIf="email.errors?.['email'] && email.dirty" >Introducir formato de correo electronico valido.</span>
+                </div>
+            </label>
+            <div class="document-container">
+                <label class="label-style" for="documentType">
+                    Tipo de documento
+                    <select formControlName="documentType" class="select-style" name="documentType" id="documentType">
+                        <option class="select-option" selected="selected" disabled="disabled"></option>
+                        <option class="select-option" value="dni">DNI</option>
+                        <option class="select-option" value="cedula">Cedula</option>
+                        <option class="select-option" value="pasaporte">Pasaporte</option>
+                    </select>
+                </label>
+                <label class="label-style" for="documentNumber">
+                    Numero de documento
+                    <input [ngClass]="{'invalid-input': isValidField('documentNumber'), 'valid-input': documentNumber.valid}" class="register-input" formControlName="documentNumber" type="number" name="documentNumber">
+                    <div class="msg-invalid">
+                        <span *ngIf="documentNumber.errors?.['required'] && documentNumber.dirty" >Campo Requerido.</span>
+                        <span *ngIf="documentNumber.errors?.['pattern'] && documentNumber.dirty" >El número de documento debe tener 8 digitos</span>
+                    </div>
+                </label>
+            </div>
+            <label class="label-style" for="password">
+                Contraseña
+                <input  [ngClass]="{'invalid-input': isValidField('password'), 'valid-input': password.valid}" class="register-input" formControlName="password" [type]="showPassword ? 'text' : 'password'" name="password">
+                <button (click)="showPassword = !showPassword" class="togglePass-button">
+                    <fa-icon [icon]="showPassword ? 'eye-slash' : 'eye'"></fa-icon>
+                </button>
+                <div class="msg-invalid">
+                    <span *ngIf="password.errors?.['required'] && password.dirty" >Campo Requerido.</span>
+                    <span *ngIf="password.errors?.['minlength'] && password.dirty" >Minimo 4 caracteres.</span>
+                </div>
+            </label>
+            <label class="label-style" for="confirmPassword">
+                Confirmar contraseña
+                <input [ngClass]="{'invalid-input': isValidField('confirmPassword'), 'valid-input': confirmPassword.valid}" class="register-input" formControlName="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" name="confirmPassword">
+                <button (click)="showConfirmPassword = !showConfirmPassword" class="togglePass-button">
+                    <fa-icon [icon]="showConfirmPassword ? 'eye-slash' : 'eye'"></fa-icon>
+                </button>
+                <div class="msg-invalid">
+                    <span *ngIf="confirmPassword.errors?.['required'] && confirmPassword.dirty" >Campo Requerido.</span>
+                    <span *ngIf="confirmPassword.errors?.['repeatPasswordValidator'] && confirmPassword.dirty" >Las contraseñas no coinciden.</span>
+                </div>
+            </label>
+            <button [ngClass]="{'submit-button-disable': registerForm.invalid, 'submit-button-hover': registerForm.valid}" class="submit-button submit-button-hover" [disabled]="registerForm.invalid" (click)="onSubmit()">Registrar</button>
+        </form>
+        <button class="virtual-keyboard">
+            <fa-icon icon="keyboard"></fa-icon>
+            Teclado virtual
+        </button>
+        <span class="go-login">¿Ya tienes cuenta? <a href="/auth/login">Iniciar sesion</a></span>
+    </div>
+</section>

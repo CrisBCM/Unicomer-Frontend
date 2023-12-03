@@ -7,13 +7,17 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faGear, faGift, faHandHoldingUsd, faHouse, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faEye, faEyeSlash, faGear, faGift, faHandHoldingUsd, faHouse, faKeyboard, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {faBell, faCreditCard} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
 import { BalanceChartsComponent } from './components/balance-charts/balance-charts.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { LoansTableComponent } from './components/loans-table/loans-table.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,13 +29,18 @@ import { LoansTableComponent } from './components/loans-table/loans-table.compon
     NavbarComponent,
     UnicomerComponent,
     BalanceChartsComponent,
-    LoansTableComponent
+    LoansTableComponent,
+    AuthenticationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -56,7 +65,10 @@ export class AppModule {
                      faArrowDown,
                      faArrowUp,
                      faCaretDown,
-                     faCaretUp
+                     faCaretUp,
+                     faKeyboard,
+                     faEye,
+                     faEyeSlash
                      );
   }
  }

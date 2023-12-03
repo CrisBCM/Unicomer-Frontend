@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.welcome-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DEDBD2;
+    height: 40vh;
+}
+.welcome-section h1{
+    margin: 0;
+}
+
+@media (min-width:960px){
+    .container{
+        flex-direction: row;
+    }
+    .welcome-section{
+        height: 100vh;
+        width: 55vw;
+    }
+}
+@media (min-width:1400px) {
+    .welcome-section{
+        width: 60vw;
+    }
+}
