@@ -18,4 +18,10 @@ export class OperationsService {
   transfer(transferRequest:TransferRequest):Observable<any>{
     return this.http.post(ApiUrls.transfer, transferRequest);
   }
+  deposit(formData:FormData):Observable<any>{
+    return this.http.post(ApiUrls.deposit, formData);
+  }
+  withdrawal(formData:FormData):Observable<any>{
+    return this.http.post(ApiUrls.withdrawal, formData);
+  }
 }

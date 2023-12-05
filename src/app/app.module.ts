@@ -24,6 +24,7 @@ import { DepositDashboardComponent } from './components/deposit-dashboard/deposi
 import { WithdrawalDashboardComponent } from './components/withdrawal-dashboard/withdrawal-dashboard.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ModalTransactionComponent } from './components/transaction-dashboard/modal-transaction/modal-transaction.component';
+import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ModalTransactionComponent } from './components/transaction-dashboard/mo
     TransactionDashboardComponent,
     DepositDashboardComponent,
     WithdrawalDashboardComponent,
-    ModalTransactionComponent
+    ModalTransactionComponent,
+    ModalConfirmComponent
   ],
   imports: [
     BrowserModule,

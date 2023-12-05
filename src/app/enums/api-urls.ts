@@ -4,5 +4,8 @@ export enum ApiUrls {
     getClient = "http://localhost:8080/api/client",
     getOperations = "http://localhost:8080/api/transactions-type",
     getClientsInfo = "http://localhost:8080/api/clients-info",
-    transfer = "http://localhost:8080/api/transfer"
+    transfer = "http://localhost:8080/api/transfer",
+    deposit = "http://localhost:8080/api/deposit",
+    withdrawal = "http://localhost:8080/api/withdrawal",
+    myTransactions = "http://localhost:8080/api/my-transactions"
 }

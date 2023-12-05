@@ -16,11 +16,11 @@ export class ModalTransactionComponent {
   clientInfo$:Observable<ClientInfo | null>;
   currentClient$:Observable<Client | null>;
   transactionForm:FormGroup;
-
+  emailToTransfer:string = "";
   selectedCardNumber:string = "";
   amountOfSelectedCard:number = 0;
 
-  @Output() succesMsg = new EventEmitter<String>;
+  @Output() succesMsg = new EventEmitter<string>;
 
   errorMsg:string = "";
 
@@ -51,6 +51,8 @@ export class ModalTransactionComponent {
         next : () => {
         },
         complete : () =>{
+          this.clientService.subtractAmount(this.amount.value, this.fromCardNumber.value);
+          this.closeModal.emit(false);
           this.succesMsg.emit('La transferencia se realizo con exito!');
         },
         error : (err:any) => this.errorMsg = err.error

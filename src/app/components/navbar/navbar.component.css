@@ -42,7 +42,7 @@ input[type="search"]::-webkit-search-results-decoration{
     border:none;
     padding:0 10% 0;
     border-radius: 1000px;
-    background-color: rgba(39, 38, 83, 0.192);
+    background-color: rgba(7, 7, 7, 0.404);
     color: whitesmoke;
 }
 .input-search::placeholder{
@@ -70,8 +70,8 @@ input[type="search"]::-webkit-search-results-decoration{
 }
 
 .icon-style{
-    color: rgb(207, 207, 207);
-    border: 2px solid rgb(207, 207, 207);
+    color: rgb(138, 138, 138);
+    border: 2px solid rgba(134, 134, 134, 0.479);
     padding: 10px 12px;
     border-radius: 1000px;
     font-size: 1.7em;
@@ -120,9 +120,6 @@ input[type="search"]::-webkit-search-results-decoration{
     }
     .li-input-search-desktop > div > fa-icon:first-child{
         top: 16px;
-    }
-    .icon-style{
-        font-size: 1.7em;
     }
     .img-container{
         height: 3.3125em;

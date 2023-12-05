@@ -1,0 +1,21 @@
+<div class="deposit-container">
+    <app-modal-confirm *ngIf="toggleModal" [modalMsg]="'¿Estas seguro que deseas depositar?'" [modalTitle]="'¿Depositar?'" (cancel)="toggleModal = false; depositForm.reset()" (confirm)="deposit()"></app-modal-confirm>
+    <form class="deposit-form" *ngIf="currentClient$ | async as client" [formGroup]="depositForm">
+        <label class="label-style" for="toCard">
+            Tarjeta a depositar
+            <select class="input-style" formControlName="toCardNumber" name="toCardNumber" id="toCardNumber">
+                <option *ngFor="let card of client.cards" [value]="card.number">{{card.number}}</option>
+            </select>
+        </label>
+        <label class="label-style" for="amount">
+            Monto
+            <input class="input-style" name="amount" formControlName="amount" type="number">
+        </label>
+        <div *ngIf="succesMsg" class="succes-container">
+            <p class="succes-msg">
+                {{succesMsg}}
+            </p>
+        </div>
+        <button (click)="toggleModal = true" class="deposit-button" [disabled]="depositForm.invalid" [ngClass]="{'valid-button': depositForm.valid}">Depositar</button>
+    </form>
+</div>

@@ -1,5 +1,8 @@
 <div class="transaction-container">
-    <app-modal-transaction *ngIf="toggleModal" (closeModal)="toggleModal = $event"></app-modal-transaction>
+    <div *ngIf="succesMsg" class="succes-container">
+        <p class="succes-msg">{{succesMsg}}</p>
+    </div>
+    <app-modal-transaction *ngIf="toggleModal" (closeModal)="toggleModal = $event" (succesMsg)="succesMsg = $event"></app-modal-transaction>
     <ul *ngIf="clientsInfo$ | async as clientsInfo" class="clients-container">
         <li *ngFor="let clientInfo of clientsInfo" class="client">
             <div class="img-container">

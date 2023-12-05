@@ -15,6 +15,14 @@ export class ClientService {
 
   constructor(private http:HttpClient) {}
 
+  getClientCardNumber(){
+    console.log("CLLLLIENT" + JSON.stringify(this.client$.value));
+    if(this.client$.value){
+      
+      return this.client$.value.cards[0].number
+    }
+    return "";
+  }
   getClient(dni:string):Observable<Client>{
     return this.http.get<Client>(`${ApiUrls.getClient}/${dni}`);
   }
@@ -35,4 +43,22 @@ export class ClientService {
   get getClientAsObservable(){
     return this.client$.asObservable();
   }
+
+  subtractAmount(amount:number, fromCardNumber:string){
+    if(this.client$.value){
+
+      let indexFromCard = this.client$.value.cards.findIndex(card => card.number == fromCardNumber);
+      
+      this.client$.value.cards[indexFromCard].balance = this.client$.value.cards[indexFromCard].balance - amount;
+    }
+  }
+  addAmount(amount:number, toCardNumber:string){
+    if(this.client$.value){
+
+      let indexFromCard = this.client$.value.cards.findIndex(card => card.number == toCardNumber);
+      
+      this.client$.value.cards[indexFromCard].balance = this.client$.value.cards[indexFromCard].balance + amount;
+    }
+  }
+
 }

@@ -1,0 +1,41 @@
+.modal-body{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    min-width: 330px;
+}
+.title-container{
+    border-bottom: 2px solid rgba(128, 128, 128, 0.205);
+    text-align: center;
+    color: rgb(76, 91, 133);
+}
+.title-container >h4{
+
+}
+.msg-container{
+    text-align: center;
+}
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.confirm-btn, .cancel-btn{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.confirm-btn{
+    background-color: #596b87c4;
+}
+.confirm-btn:hover{
+    background-color: #354e75d0;
+}
+.cancel-btn{
+    background-color: #73737398;
+}
+.cancel-btn:hover{
+    background-color: #737373;
+}

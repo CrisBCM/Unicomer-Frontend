@@ -1,10 +1,10 @@
 <div *ngIf="currentClient$ | async as currentClient" class="modal-style">
-    <div class="modal-body">
+    <div class="modal-body" *ngIf="clientInfo$ | async as clientInfo">
         <div class="transaction-info">
             <span>Tu saldo: <span class="amount-card">{{amountOfSelectedCard}}</span></span>
-            <span>Transfiriendo a: <span class="email">{{currentClient.email}}</span></span>
+            <span>Transfiriendo a: <span class="email">{{clientInfo.email}}</span></span>
         </div>
-        <form class="transaction-form" *ngIf="clientInfo$ | async as clientInfo" [formGroup]="transactionForm">
+        <form class="transaction-form" [formGroup]="transactionForm">
             <label class="label-style" for="fromCardNumber">
                 Tarjeta a usar
                 <select class="input-style" formControlName="fromCardNumber" name="fromCardNumber" id="fromCardNumber" (change)="showAmountOfSelectedCard()">
@@ -25,7 +25,7 @@
                 <p class="error-msg">{{errorMsg}}</p>
             </div>
             <div class="buttons-container">
-                <button (click)="transfer()" class="transfer-btn">Transferir</button>
+                <button (click)="transfer()" class="transfer-btn" [ngClass]="{'valid-transfer': transactionForm.valid}">Transferir</button>
                 <button (click)="closeModal.emit(false)" class="cancel-btn">Cancelar</button>
             </div>
         </form>

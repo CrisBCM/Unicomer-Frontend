@@ -53,11 +53,20 @@
     padding: 14px 20px;
     border-radius: 5px;
     color: whitesmoke;
+    background-color: #73737398;
 }
-.transfer-btn{
-    background-color: #595987;
+.valid-transfer{
+    background-color: #596b87c4;
+    cursor: pointer;
+}
+.valid-transfer:hover{
+    background-color: #354e75d0;
 }
 .cancel-btn{
+    background-color: #73737398;
+    cursor: pointer;
+}
+.cancel-btn:hover{
     background-color: #737373;
 }
 .error-container{

@@ -1,3 +1,4 @@
+<app-modal-confirm *ngIf="toggleModal" [modalTitle]="'Cerrar sesion?'" [modalMsg]="'¿Estas seguro que deseas cerrar sesion?'" (cancel)="toggleModal = false" (confirm)="logout()"></app-modal-confirm>
 <button class="menu-btn default-btn" (click)="isMobileMenuActive = true">
     <fa-icon icon="bars" class="bars-icon"></fa-icon>
 </button>
@@ -41,7 +42,7 @@
                     <fa-icon class="icon-style" icon="question-circle"></fa-icon>
                     <a class="link">Ayuda</a>
                 </li>
-                <li class="body-menu-li" routerLinkActive="active-li">
+                <li class="body-menu-li" routerLinkActive="active-li" (click)="toggleModal = true">
                     <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
                     <a class="link">Cerrar sesion</a>
                 </li>
@@ -88,7 +89,7 @@
                     <fa-icon class="icon-style" icon="question-circle"></fa-icon>
                     <a class="link">Ayuda</a>
                 </li>
-                <li class="body-menu-li" routerLinkActive="active-li">
+                <li class="body-menu-li" routerLinkActive="active-li" (click)="toggleModal = true">
                     <fa-icon class="icon-style" icon="sign-out-alt"></fa-icon>
                     <a class="link">Cerrar Sesion</a>
                 </li>

@@ -1,1 +1,21 @@
-<p>withdrawal-dashboard works!</p>
+<div class="withdrawal-container">
+    <app-modal-confirm *ngIf="toggleModal" [modalMsg]="'¿Estas seguro que deseas extraer?'" [modalTitle]="'¿Extraer?'" (cancel)="toggleModal = false; withdrawalForm.reset()" (confirm)="withdrawal()"></app-modal-confirm>
+    <form class="withdrawal-form" *ngIf="currentClient$ | async as client" [formGroup]="withdrawalForm">
+        <label class="label-style" for="toCard">
+            Tarjeta a extraer
+            <select class="input-style" formControlName="fromCardNumber" name="fromCardNumber" id="fromCardNumber">
+                <option *ngFor="let card of client.cards" [value]="card.number">{{card.number}}</option>
+            </select>
+        </label>
+        <label class="label-style" for="amount">
+            Monto
+            <input class="input-style" name="amount" formControlName="amount" type="number">
+        </label>
+        <div *ngIf="succesMsg" class="succes-container">
+            <p class="succes-msg">
+                {{succesMsg}}
+            </p>
+        </div>
+        <button (click)="toggleModal = true" class="withdrawal-button" [disabled]="withdrawalForm.invalid" [ngClass]="{'valid-button': withdrawalForm.valid}">Extraer</button>
+    </form>
+</div>

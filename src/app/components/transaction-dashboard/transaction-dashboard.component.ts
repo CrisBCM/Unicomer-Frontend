@@ -13,6 +13,7 @@ export class TransactionDashboardComponent {
 
   clientsInfo$:Observable<ClientInfo[]>;
   toggleModal:boolean = false;
+  succesMsg:string = "";
 
   constructor(private clientService:ClientService, private tokenService:TokenService){
     let tokenDecoded = tokenService.currentTokenDecodedAsValue;

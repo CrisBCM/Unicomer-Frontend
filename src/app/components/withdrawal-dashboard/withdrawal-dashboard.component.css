@@ -1,0 +1,70 @@
+.withdrawal-container{
+}
+.withdrawal-form{
+    /* background-color: gray; */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    padding-top: 40px;
+    /* padding: 40px 5%; */
+}
+.label-style{
+    font-size: 1.3em;
+}
+.input-style{
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    font-size: .9em;
+    padding: 10px 3px;
+    border-radius: 4px;
+}
+.input-style:focus-visible{
+    outline: none;
+}
+.withdrawal-button{
+    border: 0;
+    padding: 10px 0;
+    background-color: rgb(139, 147, 173);
+    color: rgb(184, 184, 184);
+    margin-top: 15px;
+}
+.valid-button{
+    background-color: rgb(48, 60, 100);
+}
+.valid-button:hover{
+    color: whitesmoke;
+    cursor: pointer;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+        display: none;
+    }
+    75%{
+        opacity: 1;
+        display: block;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+.succes-container{
+    background-color: rgba(160, 204, 160, 0.493);
+    border-radius: 3px;
+    animation: appear 4s forwards;
+}
+.succes-msg{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(58, 122, 58);
+    text-align: center;
+}
+@media (min-width:960px){
+    .withdrawal-form{
+        margin: 0;
+    }
+}

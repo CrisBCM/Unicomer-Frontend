@@ -59,6 +59,33 @@
     border-radius: 5px;
     cursor: pointer;
 }
+@keyframes appear {
+    0%{
+        opacity: 0;
+        display: none;
+    }
+    75%{
+        opacity: 1;
+        display: block;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+.succes-container{
+    background-color: rgba(160, 204, 160, 0.493);
+    border-radius: 3px;
+    animation: appear 4s forwards;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.succes-msg{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(58, 122, 58);
+    text-align: center;
+}
 @media (min-width:484px){
     .transfer-button{
         position: inherit;

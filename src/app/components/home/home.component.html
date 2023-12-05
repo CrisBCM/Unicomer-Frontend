@@ -73,44 +73,22 @@
             </ul>
             <app-balance-charts></app-balance-charts>
         </section>
-        <section class="transactions-section">
+        <section *ngIf="transactions$ | async as transactions" class="transactions-section">
             <h2>Últimas transacciones</h2>
-            <ul class="ul-default ul-transactions">
+            <ul *ngFor="let transaction of transactions" class="ul-default ul-transactions">
                 <li>
                     <fa-icon icon="arrow-up" class="income-transaction"></fa-icon>
                 </li>
                 <li class="li-name">
-                    <span class="name">Nombre</span>
-                    <span>Transferencia</span>
+                    <span class="name">{{transaction.toClientName}}</span>
+                    <span>{{transaction.transactionType}}</span>
                 </li>
                 <li>
-                    <span>$60.000</span>
+                    <span>${{transaction.amount}}</span>
                 </li>
                 <li class="li-date-time">
-                    <span class="date">Fecha</span>
-                    <span>Hora</span>
-                </li>
-                <li>
-                    <span class="status">Estado</span>
-                </li>
-                <li>
-                    <span>options</span>
-                </li>
-            </ul>
-            <ul class="ul-default ul-transactions">
-                <li>
-                    <fa-icon icon="arrow-up" class="egress-transaction"></fa-icon>
-                </li>
-                <li class="li-name">
-                    <span class="name">Nombre</span>
-                    <span>Transferencia</span>
-                </li>
-                <li>
-                    <span>$60.000</span>
-                </li>
-                <li class="li-date-time">
-                    <span class="date">Fecha</span>
-                    <span>Hora</span>
+                    <span class="date">{{transaction.date | date : 'shortDate'}}</span>
+                    <span>{{transaction.date | date : 'shortTime'}}</span>
                 </li>
                 <li>
                     <span class="status">Estado</span>
