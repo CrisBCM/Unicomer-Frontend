@@ -1,0 +1,33 @@
+<div *ngIf="currentClient$ | async as currentClient" class="modal-style">
+    <div class="modal-body">
+        <div class="transaction-info">
+            <span>Tu saldo: <span class="amount-card">{{amountOfSelectedCard}}</span></span>
+            <span>Transfiriendo a: <span class="email">{{currentClient.email}}</span></span>
+        </div>
+        <form class="transaction-form" *ngIf="clientInfo$ | async as clientInfo" [formGroup]="transactionForm">
+            <label class="label-style" for="fromCardNumber">
+                Tarjeta a usar
+                <select class="input-style" formControlName="fromCardNumber" name="fromCardNumber" id="fromCardNumber" (change)="showAmountOfSelectedCard()">
+                    <option class="from-card-option" *ngFor="let card of currentClient.cards" [value]="card.number">{{card.number}}</option>
+                </select>
+            </label>
+            <label class="label-style" for="toCardNumber">
+                Tarjeta a la cual transferir
+                <select class="input-style" name="toCardNumber" id="toCardNumber" formControlName="toCardNumber">
+                    <option *ngFor="let cardNumber of clientInfo.numberCards" [value]="cardNumber">{{cardNumber}}</option>
+                </select>
+            </label>
+            <label class="label-style" for="amount">
+                Ingresar monto
+                <input (keyup)="errorMsg = ''" class="input-style" type="number" name="amount" formControlName="amount">
+            </label>
+            <div class="error-container" *ngIf="errorMsg">
+                <p class="error-msg">{{errorMsg}}</p>
+            </div>
+            <div class="buttons-container">
+                <button (click)="transfer()" class="transfer-btn">Transferir</button>
+                <button (click)="closeModal.emit(false)" class="cancel-btn">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

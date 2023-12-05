@@ -77,18 +77,20 @@ fa-icon{
 .body-menu-li:hover{
     color: rgb(240, 237, 237);
 }
-.body-menu-li > span{
+.body-menu-li > a{
+    text-decoration: none;
     margin-left: 10%;
 }
+
 .icon-style{
     padding: 15px 15px;
     border-radius: 1000px;
 }
-.active-icon{
-    background-color: rgb(48, 71, 107);
-}
 .active-li{
     color: rgb(240, 237, 237);
+}
+.active-li > fa-icon{
+    background-color: rgb(48, 71, 107);
 }
 @media (min-width: 599px){
     .aside-menu-mobile{

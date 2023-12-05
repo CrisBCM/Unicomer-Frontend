@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faEye, faEyeSlash, faGear, faGift, faHandHoldingUsd, faHouse, faKeyboard, faMagnifyingGlass, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faEye, faEyeSlash, faGear, faGift, faHandHoldingUsd, faHouse, faKeyboard, faMagnifyingGlass, faMoneyBillTransfer, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {faBell, faCreditCard} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
@@ -17,7 +17,13 @@ import { LoansTableComponent } from './components/loans-table/loans-table.compon
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { OperationsComponent } from './components/operations/operations.component';
+import { TransactionDashboardComponent } from './components/transaction-dashboard/transaction-dashboard.component';
+import { DepositDashboardComponent } from './components/deposit-dashboard/deposit-dashboard.component';
+import { WithdrawalDashboardComponent } from './components/withdrawal-dashboard/withdrawal-dashboard.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ModalTransactionComponent } from './components/transaction-dashboard/modal-transaction/modal-transaction.component';
 
 
 @NgModule({
@@ -31,7 +37,12 @@ import { HttpClientModule } from '@angular/common/http';
     BalanceChartsComponent,
     LoansTableComponent,
     AuthenticationComponent,
-    RegisterComponent
+    RegisterComponent,
+    OperationsComponent,
+    TransactionDashboardComponent,
+    DepositDashboardComponent,
+    WithdrawalDashboardComponent,
+    ModalTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -68,7 +81,8 @@ export class AppModule {
                      faCaretUp,
                      faKeyboard,
                      faEye,
-                     faEyeSlash
+                     faEyeSlash,
+                     faMoneyBillTransfer
                      );
   }
  }

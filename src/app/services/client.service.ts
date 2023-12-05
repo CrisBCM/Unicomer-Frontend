@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Client } from '../interfaces/client';
 import { HttpClient } from '@angular/common/http';
 import { ApiUrls } from '../enums/api-urls';
+import { ClientInfo } from '../interfaces/client-info';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,21 @@ import { ApiUrls } from '../enums/api-urls';
 export class ClientService {
 
   private client$: BehaviorSubject<Client | null> = new BehaviorSubject<Client | null>(null);
+  private clientInfo$:BehaviorSubject<ClientInfo | null> = new BehaviorSubject<ClientInfo | null>(null); 
 
   constructor(private http:HttpClient) {}
 
   getClient(dni:string):Observable<Client>{
     return this.http.get<Client>(`${ApiUrls.getClient}/${dni}`);
+  }
+  getClientsInfo(dni:string):Observable<ClientInfo[]>{
+    return this.http.get<ClientInfo[]>(`${ApiUrls.getClientsInfo}/${dni}`);
+  }
+  set setClientInfo(clientInfo:ClientInfo){
+    this.clientInfo$.next(clientInfo);
+  }
+  get getClientInfoAsObservable(){
+    return this.clientInfo$.asObservable();
   }
 
   set setClient(client:Client | null){

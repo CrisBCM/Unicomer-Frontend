@@ -1,26 +1,26 @@
 <main>
     <h2>Inicio</h2>
-    <div class="cards-container">
-        <article class="card my-card">
+    <div *ngIf="client$ | async as client" class="cards-container">
+        <article *ngFor="let card of client.cards" class="card my-card">
             <ul class="ul-my-card ul-default">
                 <li class="balance">
                     <span>Mi saldo</span>
-                    <span>$12,345,789</span>
+                    <span>${{card.balance}}</span>
                 </li>
                 <li class="li-circles">
                 </li>
             </ul>
             <div class="card-number-container">
-                <span>**** **** **** 1234</span>
+                <span>{{card.number}}</span>
             </div>
             <ul class="ul-default ul-info-card">
                 <li class="li-info">
                     <span>Titular tarjeta</span>
-                    <span>Cristian Cruz M</span>
+                    <span>{{card.cardHolder}}</span>
                 </li>
                 <li class="li-info">
                     <span>Valido hasta</span>
-                    <span>03/21</span>
+                    <span>{{card.thruDate}}</span>
                 </li>
             </ul>
         </article>

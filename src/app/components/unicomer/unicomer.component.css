@@ -1,6 +1,7 @@
 .container{
     display: flex;
     background-color: #dbdbe1;
+    min-height: 100vh;
     /* background-color: #575771; */
     /* background-image: linear-gradient(135deg, #575771 1%, #7676c9 100%); */
 }

@@ -1,0 +1,20 @@
+<div class="transaction-container">
+    <app-modal-transaction *ngIf="toggleModal" (closeModal)="toggleModal = $event"></app-modal-transaction>
+    <ul *ngIf="clientsInfo$ | async as clientsInfo" class="clients-container">
+        <li *ngFor="let clientInfo of clientsInfo" class="client">
+            <div class="img-container">
+                <img class="client-img" [src]="clientInfo.urlImg" alt="imagen del cliente">
+            </div>
+            <div class="client-info">
+                <h5>{{clientInfo.name}}</h5>
+                <span>{{clientInfo.email}}</span>
+            </div>
+            <div class="transfer-button-container">
+                <button class="transfer-button" (click)="transaction(clientInfo)">
+                    <fa-icon icon="money-bill-transfer"></fa-icon>
+                    Transferir
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>

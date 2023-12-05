@@ -23,7 +23,9 @@ export class TokenService {
   set newCurrentTokenDecoded(token:string){
     this.currentTokenDecoded$.next(token)
   }
-
+  get currentTokenDecodedAsValue(){
+    return this.currentTokenDecoded$.value;
+  }
   get currentTokenDecodedAsObservable(){
     return this.currentTokenDecoded$.asObservable();
   }

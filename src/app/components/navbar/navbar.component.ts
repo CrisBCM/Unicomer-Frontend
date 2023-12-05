@@ -27,12 +27,10 @@ export class NavbarComponent implements OnInit{
 
     this.tokenService.currentTokenDecodedAsObservable.subscribe(tokenDecoded =>{
       this.tokenDecoded = tokenDecoded;
-      console.log(tokenDecoded);
     })
 
     this.clientService.getClient(this.tokenDecoded.client_id).subscribe((client:Client | null)=>{
       this.clientService.setClient = client;
-      console.log("CLIENT: " + JSON.stringify(client?.urlImg));
     })
 
   }

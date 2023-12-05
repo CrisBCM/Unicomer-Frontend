@@ -1,0 +1,15 @@
+<div class="operations-container">
+    <main class="operations-main">
+        <h2>Operaciones</h2>
+        <nav class="nav">
+            <ul *ngIf="operations$ | async as operations" class="ul-nav">
+                <li *ngFor="let operation of operations" [routerLink]="operation.typeName.toLowerCase()" [routerLinkActive]="'li-active'" class="li-nav ">
+                    <a class="link">{{operation.typeName}}</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="component-container">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
