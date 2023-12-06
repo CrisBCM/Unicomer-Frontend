@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretUp, faEye, faEyeSlash, faGear, faGift, faHandHoldingUsd, faHouse, faKeyboard, faMagnifyingGlass, faMoneyBillTransfer, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faBars, faCaretDown, faCaretLeft, faCaretRight, faCaretUp, faChevronLeft, faChevronRight, faEllipsis, faEye, faEyeSlash, faGear, faGift, faHandHoldingUsd, faHouse, faKeyboard, faMagnifyingGlass, faMoneyBillTransfer, faQuestion, faQuestionCircle, faRightLeft, faShield, faSignOutAlt, faTag, faWallet, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {faBell, faCreditCard} from '@fortawesome/free-regular-svg-icons'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UnicomerComponent } from './components/unicomer/unicomer.component';
@@ -25,7 +25,11 @@ import { WithdrawalDashboardComponent } from './components/withdrawal-dashboard/
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ModalTransactionComponent } from './components/transaction-dashboard/modal-transaction/modal-transaction.component';
 import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
+import { PaginationButtonsComponent } from './components/pagination-buttons/pagination-buttons.component';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
     DepositDashboardComponent,
     WithdrawalDashboardComponent,
     ModalTransactionComponent,
-    ModalConfirmComponent
+    ModalConfirmComponent,
+    PaginationButtonsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    {provide: LOCALE_ID, useValue: 'es'}
   ],
   bootstrap: [AppComponent]
 })
@@ -84,7 +90,10 @@ export class AppModule {
                      faKeyboard,
                      faEye,
                      faEyeSlash,
-                     faMoneyBillTransfer
+                     faMoneyBillTransfer,
+                     faCaretRight,
+                     faCaretLeft,
+                     faEllipsis
                      );
   }
  }

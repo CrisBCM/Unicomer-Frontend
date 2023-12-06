@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { TransactionTypeInfo } from '../interfaces/transaction-type-info';
 import { ApiUrls } from '../enums/api-urls';
 import { TransferRequest } from '../interfaces/transfer-request';
+import { TransactionDTO } from '../interfaces/transaction-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,13 @@ export class OperationsService {
   getOperations():Observable<TransactionTypeInfo[]>{
     return this.http.get<TransactionTypeInfo[]>(ApiUrls.getOperations);
   }
-  transfer(transferRequest:TransferRequest):Observable<any>{
-    return this.http.post(ApiUrls.transfer, transferRequest);
+  transfer(transferRequest:TransferRequest):Observable<TransactionDTO>{
+    return this.http.post<TransactionDTO>(ApiUrls.transfer, transferRequest);
   }
-  deposit(formData:FormData):Observable<any>{
-    return this.http.post(ApiUrls.deposit, formData);
+  deposit(formData:FormData):Observable<TransactionDTO>{
+    return this.http.post<TransactionDTO>(ApiUrls.deposit, formData);
   }
-  withdrawal(formData:FormData):Observable<any>{
-    return this.http.post(ApiUrls.withdrawal, formData);
+  withdrawal(formData:FormData):Observable<TransactionDTO>{
+    return this.http.post<TransactionDTO>(ApiUrls.withdrawal, formData);
   }
 }

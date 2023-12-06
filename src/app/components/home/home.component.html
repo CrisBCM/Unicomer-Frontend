@@ -1,6 +1,6 @@
-<main>
+<main *ngIf="client$ | async as client">
     <h2>Inicio</h2>
-    <div *ngIf="client$ | async as client" class="cards-container">
+    <div class="cards-container">
         <article *ngFor="let card of client.cards" class="card my-card">
             <ul class="ul-my-card ul-default">
                 <li class="balance">
@@ -15,16 +15,16 @@
             </div>
             <ul class="ul-default ul-info-card">
                 <li class="li-info">
-                    <span>Titular tarjeta</span>
-                    <span>{{card.cardHolder}}</span>
+                    <span class="name-info">Titular tarjeta</span>
+                    <span class="info">{{card.cardHolder}}</span>
                 </li>
                 <li class="li-info">
-                    <span>Valido hasta</span>
-                    <span>{{card.thruDate}}</span>
+                    <span class="name-info">Valido hasta</span>
+                    <span class="info">{{card.thruDate}}</span>
                 </li>
             </ul>
         </article>
-        <article class="card income-card">
+        <article *ngIf="monthlyIncome$ | async as income" class="card income-card">
             <ul class="ul-default ul-income-card">
                 <li class="li-income">
                     <div class="income-icons">
@@ -32,8 +32,8 @@
                         <fa-icon class="credit-card-icon" [icon]="['far', 'credit-card']"></fa-icon>
                     </div>
                     <div class="income-container">
-                        <span>Ingresos</span>
-                        <span>$45,741</span>
+                        <span>{{income.name}}</span>
+                        <span>${{income.monthlyIncome}}</span>
                     </div>
                 </li>
                 <li class="li-income-percentage">
@@ -42,7 +42,7 @@
                 </li>
             </ul>
         </article>
-        <article class="card egress-card">
+        <article *ngIf="monthlyEgress$ | async as egress" class="card egress-card">
             <ul class="ul-default ul-egress-card">
                 <li class="li-egress">
                     <div class="egress-icons">
@@ -50,8 +50,8 @@
                         <fa-icon class="credit-card-icon" [icon]="['far', 'credit-card']"></fa-icon>
                     </div>
                     <div class="egress-container">
-                        <span>Egresos</span>
-                        <span>$32,123</span>
+                        <span>{{egress.name}}</span>
+                        <span>${{egress.monthlyEgress}}</span>
                     </div>
                 </li>
                 <li class="li-egress-percentage">
@@ -75,28 +75,33 @@
         </section>
         <section *ngIf="transactions$ | async as transactions" class="transactions-section">
             <h2>Últimas transacciones</h2>
-            <ul *ngFor="let transaction of transactions" class="ul-default ul-transactions">
-                <li>
-                    <fa-icon icon="arrow-up" class="income-transaction"></fa-icon>
-                </li>
-                <li class="li-name">
-                    <span class="name">{{transaction.toClientName}}</span>
-                    <span>{{transaction.transactionType}}</span>
-                </li>
-                <li>
-                    <span>${{transaction.amount}}</span>
-                </li>
-                <li class="li-date-time">
-                    <span class="date">{{transaction.date | date : 'shortDate'}}</span>
-                    <span>{{transaction.date | date : 'shortTime'}}</span>
-                </li>
-                <li>
-                    <span class="status">Estado</span>
-                </li>
-                <li>
-                    <span>options</span>
-                </li>
-            </ul>
+            <div class="ul-container">
+                <ul *ngFor="let transaction of paginatedTransactions" class="ul-default ul-transactions">
+                    <li>
+                        <fa-icon icon="arrow-up" [ngClass]="{'income-transaction': transaction.transactionType == 'Depósito' || transaction.toClientName == client.fullname, 'egress-transaction': transaction.transactionType == 'Transacción' && transaction.toClientName != client.fullname || transaction.transactionType == 'Extracción'}"></fa-icon>
+                    </li>
+                    <li class="li-name">
+                        <span class="name">{{getName(client.fullname, transaction.fromClientName, transaction.toClientName)}}</span>
+                        <span>{{transaction.transactionType | titlecase}}</span>
+                    </li>
+                    <li>
+                        <span>${{transaction.amount}}</span>
+                    </li>
+                    <li class="li-date-time">
+                        <span class="date">{{transaction.date | date : 'mediumDate'}}</span>
+                        <span>{{transaction.date | date : 'mediumTime'}}</span>
+                    </li>
+                    <li>
+                        <span class="status">Completado</span>
+                    </li>
+                    <li>
+                        <button class="btn-options">
+                            <fa-icon icon="ellipsis"></fa-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <app-pagination-buttons class="pagination-app" #pagination [objectList]="transactions" (emitCurrentPage)="currentPage = $event" [numberOfTransactionsToShow]="numberOfTransactionsToShow"></app-pagination-buttons>
         </section>
     </div>
     <div class="table-container">

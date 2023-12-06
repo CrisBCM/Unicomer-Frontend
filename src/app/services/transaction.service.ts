@@ -27,4 +27,9 @@ export class TransactionService {
   get transactionsAsObservable(){
     return this.transactions$.asObservable();
   }
+
+  set addNewTransaction(transaction:TransactionDTO){
+    console.log("NUEVA TRANSACCION A AÑADIR:::  " + JSON.stringify(transaction));
+    this.transactions$.value?.push(transaction);
+  }
 }

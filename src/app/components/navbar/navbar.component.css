@@ -42,11 +42,12 @@ input[type="search"]::-webkit-search-results-decoration{
     border:none;
     padding:0 10% 0;
     border-radius: 1000px;
-    background-color: rgba(7, 7, 7, 0.404);
-    color: whitesmoke;
+    background-color: rgba(7, 7, 7, 0);
+    box-shadow:inset 1px 1px 5px rgba(0, 0, 0, 0.425);
+    color: rgb(27, 27, 27);
 }
 .input-search::placeholder{
-    color: rgb(197, 196, 196);
+    color: rgb(63, 63, 63);
 }
 .input-search:focus-visible{
     outline: none;
@@ -64,14 +65,14 @@ input[type="search"]::-webkit-search-results-decoration{
 .magnifying-glass-desktop{
     display: none;
     position: none;
-    color: rgb(218, 215, 215);
+    color: rgb(63, 63, 63);
     left: 40px;
     top: 17px;
 }
 
 .icon-style{
-    color: rgb(138, 138, 138);
-    border: 2px solid rgba(134, 134, 134, 0.479);
+    color: rgb(56, 56, 56);
+    border: 2px solid rgb(56, 56, 56);
     padding: 10px 12px;
     border-radius: 1000px;
     font-size: 1.7em;
@@ -79,7 +80,7 @@ input[type="search"]::-webkit-search-results-decoration{
     transition: all .4s;
 }
 .icon-style:hover{
-    background-color: rgb(54, 58, 107);
+    background-color: #c7c7c7;
 }
 .img-container{
     height: 3.3125em;

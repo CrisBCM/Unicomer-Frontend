@@ -8,9 +8,9 @@ main{
     padding: 80px 5%;
 }
 main > h2{
-    color: whitesmoke;
+    color: rgb(77, 80, 109);
     text-align: center;
-    /* padding-left: 55px; */
+    font-size: 1.8em;
     margin: 0;
 }
 .cards-container{
@@ -30,8 +30,8 @@ main > h2{
     /* background-color: rgb(231, 231, 231); */
     height: 260px;
     border-radius: 30px;
-    width: 450px;
-    min-width: 300px;
+    width: 100%;
+    
 }
 .my-card{
     background-color: #000000;
@@ -39,14 +39,15 @@ main > h2{
     color: rgb(194, 193, 193);
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    justify-content: space-between;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 35px;
 }
 .ul-my-card{
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 34px 30px 0 30px;
+    
 }
 .balance{
     display: flex;
@@ -74,22 +75,29 @@ main > h2{
 .card-number-container{
     display: flex;
     justify-content: flex-end;
-    padding-right: 30px;
 }
 .ul-info-card{
     display: flex;
     gap: 30px;
-    padding: 0 30px;
 }
 .li-info{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+.name-info{
+    font-size: .8em;
+    color: rgb(165, 165, 165);
+}
+.info{
+    font-weight: bold;
 }
 .egress-card, .income-card{
     position: relative;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     /* background-color: #d3d0d0b0; */
-    background-color: #3b3b59;
+    background-color: #c7c7c7;
+    overflow: hidden;
 }
 .egress-card::before, .income-card::before{
     content: "";
@@ -97,7 +105,7 @@ main > h2{
     height: 100%;
     position: absolute;
     background: url(../../../assets/images/card-pattern.png);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     opacity: .8;
     /* background-position: center; */
     /* background-size: cover; */
@@ -188,11 +196,19 @@ main > h2{
     margin: 0;
 }
 .transactions-section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     border-radius: 30px;
-    background-color: #afafbc;
+    background-color: #c3c3f08e;
     width: 100%;
     overflow-x: auto;
     /* width: 45%; */
+}
+.ul-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .ul-transactions{
     display: flex;
@@ -202,7 +218,6 @@ main > h2{
     gap: 15px;
     align-items: center;
     justify-content: space-between;
-    margin-top: 45px;
 }
 .li-name, .li-date-time{
     display: flex;
@@ -226,6 +241,20 @@ main > h2{
 .name, .date, .status{
     font-weight: bold;
 }
+.status{
+    color: rgb(51, 143, 51);
+}
+.btn-options{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: gray;
+    transition: all .4s;
+}
+.btn-options:hover{
+    color: rgb(75, 75, 75);
+}
 
 /* TABLE */
 
@@ -234,6 +263,9 @@ main > h2{
     margin: 0 auto;
     /* background-color: #000000; */
     overflow-x: auto;
+}
+.pagination-app{
+    margin-top: auto;
 }
 
 
@@ -254,10 +286,10 @@ main > h2{
         width: 100%;
     }
     .balance-section{
-        width: 55%;
+        width: 54%;
     }
     .transactions-section{
-        width: 45%;
+        width: 46%;
     }
     .table-container{
         width: 100%;

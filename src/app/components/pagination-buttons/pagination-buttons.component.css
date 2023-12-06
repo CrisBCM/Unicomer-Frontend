@@ -1,0 +1,30 @@
+.buttons-container{
+    /* background-color: gray; */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+    align-self: flex-end;
+}
+.btn-style{
+    background-color: transparent;
+    border: 2px solid rgb(156, 156, 156);
+    padding: 16px 20px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+.btn-active{
+    background-color: rgb(204, 204, 204);
+}
+.arrow-btn{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: rgb(14, 14, 14);
+    cursor: pointer;
+}
+.arrow-disabled{
+    cursor: default;
+    color: rgba(128, 128, 128, 0.452);
+}

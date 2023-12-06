@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/interfaces/client';
+import { TransactionDTO } from 'src/app/interfaces/transaction-dto';
 import { ClientService } from 'src/app/services/client.service';
 import { OperationsService } from 'src/app/services/operations.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-deposit-dashboard',
@@ -17,7 +19,7 @@ export class DepositDashboardComponent {
   errorMsg:string = "";
   succesMsg:string = "";
   
-  constructor(private fb:FormBuilder, private clientService:ClientService, private operationsService:OperationsService){
+  constructor(private fb:FormBuilder, private clientService:ClientService, private operationsService:OperationsService, private transactionService:TransactionService){
 
     this.currentClient$ = clientService.getClientAsObservable;
 
@@ -44,8 +46,11 @@ export class DepositDashboardComponent {
       formData.append('amount', this.amount.value);
 
       this.operationsService.deposit(formData).subscribe({
+        next:(transaction:TransactionDTO)=>{
+          this.transactionService.addNewTransaction = transaction;
+        },
         complete: ()=> {
-          
+          this.clientService.addIncome(this.amount.value);
           this.clientService.addAmount(this.amount.value, this.toCardNumber.value);
 
           this.succesMsg = 'Deposito exitoso'

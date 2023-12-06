@@ -1,0 +1,61 @@
+<div class="buttons-container">
+    <button
+      class="arrow-btn"
+      [disabled]="currentPage == 1"
+      [ngClass]="{'arrow-disabled':currentPage == 1}"
+      (click)="changePage(currentPage - 1)"
+    >
+      <fa-icon icon="caret-left"></fa-icon>
+    </button>
+    <button
+      class="btn-style"
+      *ngIf="
+        currentPage != arrayButtons[0] && !listOfButtons.includes(arrayButtons[0])
+      "
+      (click)="changePage(arrayButtons[0])"
+    >
+      {{ arrayButtons[0] }}
+    </button>
+    <span
+      class=""
+      *ngIf="
+        currentPage != arrayButtons[0] && !listOfButtons.includes(arrayButtons[0])
+      "
+      >...</span
+    >
+    <button
+      class="btn-style"
+      type="button"
+      (click)="changePage(e)"
+      *ngFor="let e of listOfButtons; let i = index"
+      [ngClass]="{ 'btn-active': currentPage == e }"
+    >
+      {{ e }}
+    </button>
+    <span
+      class=""
+      *ngIf="
+        currentPage != lastElementOfArray &&
+        !listOfButtons.includes(lastElementOfArray)
+      "
+      >...</span
+    >
+    <button
+      class="btn-style"
+      *ngIf="
+        currentPage != lastElementOfArray &&
+        !listOfButtons.includes(lastElementOfArray)
+      "
+      (click)="changePage(lastElementOfArray)"
+    >
+      {{ lastElementOfArray }}
+    </button>
+    <button
+      class="arrow-btn"
+      [disabled]="currentPage == lastElementOfArray"
+      [ngClass]="{'arrow-disabled':currentPage == lastElementOfArray}"
+      (click)="changePage(currentPage + 1)"
+    >
+    <fa-icon icon="caret-right"></fa-icon>
+    </button>
+  </div>

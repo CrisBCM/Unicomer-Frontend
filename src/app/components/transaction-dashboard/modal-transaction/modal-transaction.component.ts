@@ -3,8 +3,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable, from } from 'rxjs';
 import { Client } from 'src/app/interfaces/client';
 import { ClientInfo } from 'src/app/interfaces/client-info';
+import { TransactionDTO } from 'src/app/interfaces/transaction-dto';
 import { ClientService } from 'src/app/services/client.service';
 import { OperationsService } from 'src/app/services/operations.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-modal-transaction',
@@ -24,7 +26,7 @@ export class ModalTransactionComponent {
 
   errorMsg:string = "";
 
-  constructor(private clientService:ClientService, private fb:FormBuilder, private operationsService:OperationsService){
+  constructor(private clientService:ClientService, private fb:FormBuilder, private operationsService:OperationsService, private transactionService:TransactionService){
     this.clientInfo$ = clientService.getClientInfoAsObservable;
     this.currentClient$ = clientService.getClientAsObservable;
 
@@ -48,10 +50,12 @@ export class ModalTransactionComponent {
   transfer(){
     if(this.transactionForm.valid){
       this.operationsService.transfer(this.transactionForm.value).subscribe({
-        next : () => {
+        next : (transaction: TransactionDTO) => {
+          this.transactionService.addNewTransaction = transaction;
         },
         complete : () =>{
           this.clientService.subtractAmount(this.amount.value, this.fromCardNumber.value);
+          this.clientService.addEgress(this.amount.value);
           this.closeModal.emit(false);
           this.succesMsg.emit('La transferencia se realizo con exito!');
         },
